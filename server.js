@@ -11,13 +11,15 @@ const PORT = process.env.PORT || 3005;
 app.use(cors());
 app.use(bodyParser.json());
 
+
+
 const URL = process.env.MONGODB_URL;
 
 console.log("MongoDB URL:", process.env.MONGODB_URL);
 
 mongoose.connect(URL, { 
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
     // useCreateIndex: true,
     // useFindAndModify: false  
 });
