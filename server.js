@@ -18,6 +18,8 @@ console.log("MongoDB URL:", process.env.MONGODB_URL);
 mongoose.connect(URL, { 
     useNewUrlParser: true,
     useUnifiedTopology: true
+    // useCreateIndex: true,
+    // useFindAndModify: false  
 });
 
     const connection = mongoose.connection;
@@ -25,6 +27,8 @@ mongoose.connect(URL, {
         console.log("MongoDB database connection established successfully");
     });
 
+    const userRouter = require('./routes/user.js');
+    app.use('/user', userRouter);
     app.listen(PORT, () => {
         console.log(`Server is running on port: ${PORT}`);
     });
