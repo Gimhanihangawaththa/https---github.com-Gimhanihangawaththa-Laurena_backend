@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3005;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use('/uploads', express.static('uploads'));
 
 
 const URL = process.env.MONGODB_URL;
@@ -30,7 +31,9 @@ mongoose.connect(URL, {
     });
 
     const userRouter = require('./routes/user.js');
-    app.use('/user', userRouter);
+    const productRouter = require('./routes/product.js');
+    app.use('/api/user', userRouter);
+    app.use('/api/product', productRouter);
     app.listen(PORT, () => {
         console.log(`Server is running on port: ${PORT}`);
     });
