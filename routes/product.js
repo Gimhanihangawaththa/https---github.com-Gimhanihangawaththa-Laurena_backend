@@ -144,7 +144,7 @@ router.get('/newarrivals', async (req, res) => {
 router.get("/singleview/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
-    console.log("Fetched product:", product);
+    // console.log("Fetched product:", product);
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
     }
